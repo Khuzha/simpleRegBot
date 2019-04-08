@@ -204,6 +204,7 @@ getNumber.on('contact', async (ctx) => {
     { reply_markup: { keyboard: [['️⬅️ На главную']], resize_keyboard: true, one_time_keyboard: true } }
     )
   await ctx.scene.leave('getNumber')
+  ctx.session = null
   ctx.scene.enter('main')
 
   for (let key of data.admins) {
