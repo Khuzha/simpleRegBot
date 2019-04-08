@@ -31,7 +31,7 @@ bot.use(stage.middleware())
 bot.hears('️⬅️ На главную', (ctx) => {
   ctx.reply(
     'Введите фамилию, имя и отчество',
-    { reply_markup: { remove_keyboard: true } }  
+    { reply_markup: { remove_keyboard: true } }
   )
   ctx.scene.enter('getName')
 })
@@ -45,7 +45,10 @@ bot.start((ctx) => {
 })
 
 getName.command('start', async (ctx) => {
-  ctx.reply('Начнем заново. Введите имя, фамилию и отчество')
+  ctx.reply(
+    'Начнем заново. Введите имя, фамилию и отчество',
+    { reply_markup: { remove_keyboard: true } }
+  )
   await ctx.scene.leave('getEduc')
   ctx.scene.enter('getName')
 })
@@ -105,7 +108,7 @@ getEduc.hears('◀️ Назад', async (ctx) => {
 })
 
 getEduc.hears(['❌ Стереть все', '/start'], async (ctx) => {
-  ctx.reply('Начнем заново. Введите имя, фамилию и отчество')
+  ctx.reply(     'Начнем заново. Введите имя, фамилию и отчество',     { reply_markup: { remove_keyboard: true } }   )
   await ctx.scene.leave('getEduc')
   ctx.scene.enter('getName')
 })
@@ -133,7 +136,7 @@ getTheme.hears('◀️ Назад', async (ctx) => {
 })
 
 getTheme.hears(['❌ Стереть все', '/start'], async (ctx) => {
-  ctx.reply('Начнем заново. Введите имя, фамилию и отчество')
+  ctx.reply(     'Начнем заново. Введите имя, фамилию и отчество',     { reply_markup: { remove_keyboard: true } }   )
   await ctx.scene.leave('getTheme')
   ctx.scene.enter('getName')
 })
@@ -162,7 +165,7 @@ getLangs.hears('◀️ Назад', async (ctx) => {
 })
 
 getLangs.hears(['❌ Стереть все', '/start'], async (ctx) => {
-  ctx.reply('Начнем заново. Введите имя, фамилию и отчество')
+  ctx.reply(     'Начнем заново. Введите имя, фамилию и отчество',     { reply_markup: { remove_keyboard: true } }   )
   await ctx.scene.leave('getLangs')
   ctx.scene.enter('getName')
 })
@@ -193,7 +196,7 @@ getCompSkills.hears('◀️ Назад', async (ctx) => {
 })
 
 getCompSkills.hears(['❌ Стереть все', '/start'], async (ctx) => {
-  ctx.reply('Начнем заново. Введите имя, фамилию и отчество')
+  ctx.reply(     'Начнем заново. Введите имя, фамилию и отчество',     { reply_markup: { remove_keyboard: true } }   )
   await ctx.scene.leave('getCompSkills')
   ctx.scene.enter('getName')
 })
@@ -224,7 +227,7 @@ getNumber.hears('◀️ Назад', async (ctx) => {
 })
 
 getNumber.hears(['❌ Стереть все', '/start'], async (ctx) => {
-  ctx.reply('Начнем заново. Введите имя, фамилию и отчество')
+  ctx.reply(     'Начнем заново. Введите имя, фамилию и отчество',     { reply_markup: { remove_keyboard: true } }   )
   await ctx.scene.leave('getNumber')
   ctx.scene.enter('getCompSkills')
   ctx.session = null
@@ -274,7 +277,7 @@ check.hears('◀️ Назад', async (ctx) => {
 })
 
 getNumber.hears(['❌ Стереть все', '/start'], async (ctx) => {
-  ctx.reply('Начнем заново. Введите имя, фамилию и отчество')
+  ctx.reply(     'Начнем заново. Введите имя, фамилию и отчество',     { reply_markup: { remove_keyboard: true } }   )
   await ctx.scene.leave('getNumber')
   ctx.scene.enter('getCompSkills')
   ctx.session = null
