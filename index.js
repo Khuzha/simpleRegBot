@@ -44,6 +44,11 @@ bot.start((ctx) => {
   ctx.scene.enter('getName')
 })
 
+getName.command('start', async (ctx) => {
+  ctx.reply('Начнем заново. Введите имя, фамилию и отчество')
+  await ctx.scene.leave('getEduc')
+  ctx.scene.enter('getName')
+})
 
 getName.on('text', async (ctx) => {
   if (ctx.message.text === '◀️ Назад') {
@@ -99,7 +104,7 @@ getEduc.hears('◀️ Назад', async (ctx) => {
   ctx.scene.enter('getYear')
 })
 
-getEduc.hears('❌ Стереть все', async (ctx) => {
+getEduc.hears(['❌ Стереть все', '/start'], async (ctx) => {
   ctx.reply('Начнем заново. Введите имя, фамилию и отчество')
   await ctx.scene.leave('getEduc')
   ctx.scene.enter('getName')
@@ -127,7 +132,7 @@ getTheme.hears('◀️ Назад', async (ctx) => {
   ctx.scene.enter('getEduc')
 })
 
-getTheme.hears('❌ Стереть все', async (ctx) => {
+getTheme.hears(['❌ Стереть все', '/start'], async (ctx) => {
   ctx.reply('Начнем заново. Введите имя, фамилию и отчество')
   await ctx.scene.leave('getTheme')
   ctx.scene.enter('getName')
@@ -156,7 +161,7 @@ getLangs.hears('◀️ Назад', async (ctx) => {
   ctx.scene.enter('getTheme')
 })
 
-getLangs.hears('❌ Стереть все', async (ctx) => {
+getLangs.hears(['❌ Стереть все', '/start'], async (ctx) => {
   ctx.reply('Начнем заново. Введите имя, фамилию и отчество')
   await ctx.scene.leave('getLangs')
   ctx.scene.enter('getName')
@@ -187,7 +192,7 @@ getCompSkills.hears('◀️ Назад', async (ctx) => {
   ctx.scene.enter('getLangs')
 })
 
-getCompSkills.hears('❌ Стереть все', async (ctx) => {
+getCompSkills.hears(['❌ Стереть все', '/start'], async (ctx) => {
   ctx.reply('Начнем заново. Введите имя, фамилию и отчество')
   await ctx.scene.leave('getCompSkills')
   ctx.scene.enter('getName')
@@ -218,7 +223,7 @@ getNumber.hears('◀️ Назад', async (ctx) => {
   ctx.scene.enter('getCompSkills')
 })
 
-getNumber.hears('❌ Стереть все', async (ctx) => {
+getNumber.hears(['❌ Стереть все', '/start'], async (ctx) => {
   ctx.reply('Начнем заново. Введите имя, фамилию и отчество')
   await ctx.scene.leave('getNumber')
   ctx.scene.enter('getCompSkills')
@@ -268,7 +273,7 @@ check.hears('◀️ Назад', async (ctx) => {
   ctx.scene.enter('getNumber')
 })
 
-getNumber.hears('❌ Стереть все', async (ctx) => {
+getNumber.hears(['❌ Стереть все', '/start'], async (ctx) => {
   ctx.reply('Начнем заново. Введите имя, фамилию и отчество')
   await ctx.scene.leave('getNumber')
   ctx.scene.enter('getCompSkills')
