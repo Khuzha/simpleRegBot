@@ -276,7 +276,7 @@ check.hears('◀️ Назад', async (ctx) => {
   ctx.scene.enter('getNumber')
 })
 
-getNumber.hears(['❌ Стереть все', '/start'], async (ctx) => {
+check.hears(['❌ Стереть все', '/start'], async (ctx) => {
   ctx.reply(     'Начнем заново. Введите имя, фамилию и отчество',     { reply_markup: { remove_keyboard: true } }   )
   await ctx.scene.leave('getNumber')
   ctx.scene.enter('getCompSkills')
